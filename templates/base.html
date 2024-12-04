@@ -1,0 +1,200 @@
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="{% static 'tesd.png' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %}| TES</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+    <link rel="stylesheet" href="{{ STATIC_URL }}base.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.default.min.css" rel="stylesheet">
+
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+/>
+
+    <style>
+
+        /* Change the color of the previous and next arrows */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #ada4a4; /* Change to your desired color (for the arrow icon) */
+    border-radius: 50%; /* Optional: Makes the buttons circular */
+    padding: 10px; /* Adjust the size of the arrow button */
+}
+
+/* Hover effect for the arrows */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: #007bff; /* Keep arrow icon white on hover */
+}
+
+/* Adjust the size of the arrows */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px; /* Change the arrow icon size */
+}
+
+
+        .swiper {
+        width: 100%;
+        height: 500px;
+    }
+
+    .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f8f9fa;
+        border-radius: 10px;
+        perspective: 1000px;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+        .team-row {
+            margin: 50px;
+        }
+        .team-card {
+            margin-bottom: 40px;
+        }
+        @media (max-width: 576px) {
+            .team-row {
+                margin: 0px;
+            }
+            .team-card {
+                width: 95%;
+                margin-bottom: 5;
+            }
+        }
+    </style>
+
+</head>
+ 
+<style>
+    
+</style>
+
+<nav> {% include 'navbar.html' %} </nav>
+
+
+  
+
+
+<body>{% block body %}
+        
+    {% endblock body %}
+</body>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script src="{% static 'lib/wow/wow.min.js' %}" ></script>
+<script src="{% static 'lib/easing/easing.min.js' %}" ></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}" ></script>
+<script src="{% static 'lib/counterup/counterup.min.js' %}" ></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}" ></script>
+<script src="{% static 'js/main.js' %}" ></script>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            // slidesPerView: 3, // Default to showing 3 images
+            spaceBetween: 30, // Space between slides
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                // When the viewport width is less than or equal to 768px
+                768: {
+                    slidesPerView: 1, // Show only 1 image
+                    spaceBetween: 10, // Reduce space between slides
+                },
+                // For larger screens
+                1024: {
+                    slidesPerView: 2, // Show 2 images
+                    spaceBetween: 20,
+                },
+                // For very large screens
+                1440: {
+                    slidesPerView: 3, // Show 3 images
+                    spaceBetween: 30,
+                },
+            },
+        });
+    });
+</script>
+
+
+
+</html>

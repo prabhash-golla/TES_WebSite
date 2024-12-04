@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Article's and Magazines {% endblock title %}
+
+{% block body %}
+<div class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+  
+  <div class="container py-5">
+    <div class="text-center text-700  wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="text-secondary text-uppercase">Our Readings</h6>
+      <h1 class="mb-5" style = "font-size: calc(1.375rem + 1.5vw)!important; ">MAGAZINES & ARTICLE'S</h1>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
+    {% for file in files %}
+    <div class="p-6">
+      <a href="{{ file.file.url }}" class="">
+
+      <img class="object-cover object-center w-full mb-8 lg:h-56 md:h-56 rounded-xl" src="{{file.file_thumbnail.url}}" alt="blog">
+      </a>
+      <div class="inline-flex justify-between w-full">
+        <h1 class="mb-8 text-xl font-semibold leading-none tracking-tighter text-neutral-600">{{file.file_title}}</h1>
+        <span>{{file.file_created}}</span>
+      </div>
+      <p class="mx-auto text-base font-medium leading-relaxed text-gray-500 truncate-overflow">
+        {{ file.file_description|truncatewords:15 }}
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+  
+</div>
+
+
+
+
+{% endblock body %}

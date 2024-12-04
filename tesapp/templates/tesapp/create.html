@@ -1,0 +1,57 @@
+{% extends 'base.html' %} 
+
+{% block body %}
+{% load static %}
+
+
+<h1 class="mb-4 py-24  text-3xl text-center font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl ">Dear <mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">{{user.username}}</mark> upload your post</h1>
+<div class="flex mx-40  justify-between">
+
+<form class="mx-5 my-8" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  
+   
+      <div class="mb-2">
+        <label for="{{ form.title.id_for_label }}" class="block text-gray-700 font-medium mb-2">Title:</label>
+        {{ form.title }}
+      </div>
+  
+      <div class="mb-2">
+        <label for="{{ form.description.id_for_label }}" class="block text-gray-700 font-medium mb-2">Description:</label>
+        {{ form.description }}
+      </div>
+ 
+  
+    
+      <div class="mb-2">
+        <label for="{{ form.tags.id_for_label }}" class="block text-gray-700 font-medium mb-2">Tags:</label>
+        {{ form.tags }}
+      </div>
+  
+      <div class="mb-2">
+        <label for="{{ form.image.id_for_label }}" class="block text-gray-700 font-medium mb-2">Image:</label>
+        {{ form.image }}
+      </div>
+    
+  
+  
+
+  <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Submit
+ </button>
+
+ {% comment %}  for MAGAZINES&something  {% endcomment %}
+</form>
+  
+
+
+<div>
+<img class="h-auto max-w-lg transition-all duration-300 rounded-lg " src="{% static 'images/Screenshot 2023-06-22 230740.png' %}" alt="image description">
+
+</div>
+
+</div>
+
+
+
+{% endblock body %}

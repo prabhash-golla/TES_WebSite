@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="mx-auto">
+  
+<h1 class="mb-4 pt-40 text-center text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white"><span class="text-blue-600 dark:text-blue-500">{{ photo.title }}</span> </h1>
+
+
+  {% comment %} <p class="text-center font-light">
+    Uploaded on: {{ photo.created }}<br />
+  </p> {% endcomment %}
+  {% if user == photo.submitter %}
+  <p class="text-center">
+    <a href="{% url 'photo:update' photo.id %}" class="text-primary px-2"
+      >Update</a
+    >
+    <a href="{% url 'photo:delete' photo.id %}" class="text-danger px-2"
+      >Delete</a
+    >
+  </p>
+  {% endif %}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+  <div class="grid gap-10 lg:grid-cols-2">
+    <div class="lg:pr-10">
+     
+      <h5 class="mb-4 text-4xl font-extrabold leading-none">
+        {{ photo.title }}
+      </h5>
+      <p class="mb-6 text-gray-900">
+        {{ photo.description }}
+      </p>
+      <hr class="mb-5 border-gray-300" />
+      Uploaded on: {{ photo.created }}
+    </div>
+    <div>
+      <img class="object-cover w-full h-56 rounded shadow-lg sm:h-96" src="{{ photo.image.url }}" alt="" />
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

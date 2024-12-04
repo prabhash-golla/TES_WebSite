@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block title %}All events {% endblock title %}
+
+{% block body %}
+
+    <!-- Page Header Start -->
+    <!-- <div class="container-fluid page-header py-5" style="margin-bottom: 6rem;">
+      <div class="container py-5">
+          <h1 class="display-3 text-white mb-3 animated slideInDown">Events</h1>
+          <nav aria-label="breadcrumb animated slideInDown">
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a class="text-white" href="/">Home</a></li>
+                  <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                  <li class="breadcrumb-item text-white active" aria-current="#">Events</li>
+              </ol>
+          </nav>
+      </div>
+  </div> -->
+  <!-- Page Header End -->
+
+    <!-- Service Start -->
+    <div id = "Events" class="container-xxl py-5">
+      <div class="container py-5">
+        <div class="text-center text-700  wow fadeInUp" data-wow-delay="0.1s">
+          <h6 class="text-secondary text-uppercase">Our Events</h6>
+          <h1 class="mb-5" style = "    font-size: calc(1.375rem + 1.5vw)!important; ">Explore Our Events</h1>
+      </div>
+          <div class="row g-4">
+            {% for photo in photos %}
+
+              <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                  <div class="service-item p-4">
+                      <div class="overflow-hidden mb-4">
+                          <img class="img-fluid" src="{% if photo.image %}{{ photo.image.url }}{% else %}{% endif %}" alt="">
+                      </div>
+                      <h4 class="mb-3">{{ photo.title }}</h4>
+                      <p>{{ photo.description|truncatewords:15 }}</p>
+                      <a class="btn-slide mt-2" href="{% url 'photo:detail' photo.id %}" ><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  </div>
+  <!-- Service End -->
+
+   <!-- Footer Start -->
+   <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
+    <div class="container ">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Address</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>IIT Kharagpur , Westbengal </p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 80746 06781</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>tesiitkgp@gmail.com</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/tesiitkgp/"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/TESIITKGP/"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/tesiitkgp"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Quick Links</h4>
+                <a class="btn btn-link" href="/#about">About Us</a>
+                <a class="btn btn-link" href="/#contact">Contact Us</a>
+                <a class="btn btn-link" href="{% url 'photo:list' %}">Our Events</a>
+                <a class="btn btn-link" href="{% url 'photo:article' %}">Articles</a>
+                <a class="btn btn-link"  href="/#team-section" >Team</a>
+            </div>
+            {% comment %} <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Newsletter</h4>
+                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                <div class="position-relative mx-auto" style="max-width: 400px;">
+                  <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                  <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" style="background-color: #FF3E41; color: white;">SignUp</button>
+              </div>
+              
+            </div> {% endcomment %}
+            <div class="col-lg-3 col-md-6">
+              <h4 class="text-light mb-4">Newsletter</h4>
+              <div id="subscribe-form">
+                  <p>Subscribe to our Newsletter to get the latest updates from our society</p>
+                  <div class="position-relative mx-auto" style="max-width: 400px;">
+                      <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="email" id="email" placeholder="Your email">
+                      <button type="button" id="subscribe-button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" style="background-color: #FF3E41; color: white;">Subscribe</button>
+                  </div>
+              </div>
+          </div>
+          
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    console.log("Document ready.");
+    
+    $('#subscribe-button').click(function () {
+        console.log("Button clicked.");
+        
+        var email = $('#email').val();
+        console.log("Email:", email);
+        
+        $.ajax({
+            type: 'POST',
+            url: '{% url "photo:subscribe" %}',
+            data: { 'email': email, 'csrfmiddlewaretoken': '{{ csrf_token }}' },
+            success: function (data) {
+                console.log("Success:", data);
+                $('#subscribe-form').html('<p>Subscription successful!</p>');
+            },
+            error: function (xhr, status, error) {
+                console.error("Error:", error);
+            }
+        });
+    });
+});
+</script>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#">tesiitkgp.in</a>, All Right Reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+{% endblock body %}

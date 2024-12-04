@@ -1,0 +1,626 @@
+{% extends 'base.html' %}
+{% block title %}Home {% endblock title %}Home 
+{% block body %}
+{% load static %}
+
+
+
+    <!-- Carousel Start -->
+    
+    <div class="container-fluid mb-20">
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Carousel Items -->
+                <div class="swiper-slide">
+                    <img src="{% static 'Colosol/Day1.jpeg' %}" alt="Day 1" class="img-fluid">
+                </div>
+                <div class="swiper-slide">
+                    <img src="{% static 'Colosol/Day2.jpeg' %}" alt="Day 2" class="img-fluid">
+                </div>
+                <div class="swiper-slide">
+                    <img src="{% static 'Colosol/Day3.jpeg' %}" alt="Day 3" class="img-fluid">
+                </div>
+                <div class="swiper-slide">
+                    <img src="{% static 'Colosol/Day4.jpeg' %}" alt="Day 4" class="img-fluid">
+                </div>
+            </div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    
+  <!-- Carousel End -->
+
+
+
+
+
+    <!-- About Start -->
+    <div class="container-fluid overflow-hidden px-lg-0">
+      <div class="container about px-lg-0">
+          <div class="row g-5 mx-lg-0">
+              <div class="col-lg-6 ps-lg-0 wow fadeInLeft" data-wow-delay="0.1s" style="min-height: 400px;">
+                  <div class="position-relative h-100">
+                      <img class="position-absolute img-fluid w-100 h-100" src="{% static 'IMG_3274.JPG' %}" style="object-fit: cover;" alt="">
+                  </div>
+              </div>
+              <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
+                  <h6 class="text-secondary text-uppercase mb-3"></h6>
+
+                  <h1 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl py-10 text-center" style="font-size: 30px;">
+                    <mark class="px-2 text-white bg-red-600 rounded dark:bg-red-500 ">OUR STORY</mark>
+                  </h1>
+                  
+                                    <p class="mb-5">"Drawing wisdom from Mahatma Gandhi's insightful words, 'The best way to find yourself is to lose yourself in the service of others,' we are resolutely committed to forging an equitable and harmonious world that stands the test of time. The formidable repercussions of climate change imperil us all due to our heedless exploitation and human-induced degradation of precious natural resources.
+
+                    A staggering 24% of global fatalities stem from the consequences of environmental degradation, encompassing a distressing 28% of mortality among children under five. Consequently, immediate collective action from stakeholders is imperative to reinstate the well-being of both humanity and the ecosystem. Within the folds of the Technology Environment Society, we ardently labor to cultivate an equitable and sustainable society, meticulously addressing every facet of sustainability—be it environmental, social, or economic. Yet, a recurrent fallacy persists whenever the topic of sustainability arises: the notion that economic progress and environmental preservation are incompatible. In truth, a delicate balance must be struck amongst these three pillars of sustainability. Our aspirations for this symbiotic synergy encompass the embracement of education, empowerment, and egalitarianism, fostering robust health and adaptability in our 'ONLY HOME.'
+                    
+                    Our Vision
+                    Embarking on a trajectory toward an impartial and sustainable society // Envisioning a future where equity and sustainability intertwine."
+                  </p>
+                  
+                  <a href="https://wiki.metakgp.org/w/Technology_Environment_Society" class="btn btn-primary py-3 px-5">Explore More</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- About End -->
+
+
+
+
+
+
+
+    <!-- Service Start -->
+    <!-- <div id = "Events" class="container-xxl py-5">
+      <div class="container py-5">
+          <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+              
+            <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 ">Our <span class="text-blue-600 dark:text-blue-500">Events</span></h1>
+
+
+          </div>
+          <div class="row g-4">
+            {% for photo in photos|slice:":3" %}
+
+              <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                  <div class="service-item p-4">
+                      <div class="overflow-hidden mb-4">
+                          <img class="img-fluid" src="{% if photo.image %}{{ photo.image.url }}{% else %}{% static 'ftp/logo.png' %}{% endif %}" alt="">
+                      </div>
+                      <h4 class="mb-3">{{ photo.title }}</h4>
+                      <p>{{ photo.description|truncatewords:15 }}</p>
+                      <a class="btn-slide mt-2" href="{% url 'photo:detail' photo.id %}" ><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  </div> -->
+  <!-- Service End -->
+
+  
+
+
+  
+  <h1 class="mt-20 mb-4 text-4xl text-center font-extrabold leading-none tracking-tight text-gray-900 ">OUR <span class="text-blue-600 dark:text-blue-500">IMPACT</span></h1>
+
+    <div class="relative p-7">
+      <img class="object-contain w-full h-59 sm:h-59" src="{% static 'banner_latest.png' %}" alt="" />
+    </div>
+  
+
+    
+    {% comment %}  <h1 class="mt-20 mb-4 text-4xl  text-center font-extrabold leading-none tracking-tight text-gray-900 ">MAGAZINES <span class="text-blue-600 dark:text-blue-500">ARTICLE'S</span></h1>
+    {% endcomment %}
+
+  {% comment %} <div class="row-container">
+    {% for file in files|slice:":4" %}
+    <section>
+      <div class="mx-auto flex w-80 flex-col justify-center bg-white rounded-2xl shadow-xl shadow-gray-400/20 image-container">
+        <!-- Display file details -->
+        <h1 class="text-2xl font-medium text-gray-700 pb-2">{{ file.file_title }}</h1>
+        <p class="text text-gray-500 leading-6 truncate-2-lines">{{ file.file_description }}</p>
+  
+        <!-- Display file link -->
+        <a href="{{ file.file.url }}" class="">
+          <img class="aspect-video w-90 rounded-t-2xl object-cover object-center" src="{{ file.file_thumbnail.url }}">
+        </a>
+      </div>
+    </section>
+    {% endfor %}
+  </div> {% endcomment %}
+
+  
+  {% comment %}
+  {% for file in files|slice:":2" %}
+  <div class="space-y-8 px-5 pb-10 lg:divide-y lg:divide-gray-100">
+    <a href="{{ file.file.url }}" class="">
+      <div class="pt-8 sm:flex lg:items-end group">
+        <div class="flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
+          <img class="w-full rounded-md h-32 lg:w-60 object-cover" src="{{ file.file_thumbnail.url }}" alt="text">
+        </div>
+        <div class="flex flex-col h-full">
+          <span class="text-sm text-gray-500">{{ file.file_created }}</span>
+          <p class="mt-3 text-lg font-medium leading-6">
+            <a href="{{ file.file.url }}" class="text-xl text-gray-800 group-hover:text-gray-500 lg:text-2xl">{{ file.file_title }}</a>
+          </p>
+          <p class="mt-2 text-lg text-gray-500">{{ file.file_description }}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+    {% endfor %}
+    {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div id ="team-section" class="container-xxl py-5 ">
+    <div class="container ">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+          <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 ">OUR <span class="text-blue-600 dark:text-blue-500">TEAM</span></h1>
+
+        </div>
+        <div class="row g-4 p-5 ">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+              <div class="team-item p-4">
+                <div class="overflow-hidden mb-4">
+                    <img class="img-fluid" src="{% static 'team/raju.jpg' %} " alt="">
+                </div>
+                <h5 class="mb-0">Gnaneswar Karakavalasa </h5>
+                <p>GOVERNOR</p>
+                <div class="btn-slide mt-1">
+                    <i class="fa fa-share"></i>
+                    <span>
+                        <a href="https://www.facebook.com/rajvardhansingh.jadon.7"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/rajvardhan-singh-jadon-a580781a0/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/rj_vardhan/"><i class="fab fa-instagram"></i></a>
+                    </span>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+              <div class="team-item p-4">
+                <div class="overflow-hidden mb-4">
+                    <img class="img-fluid" src="{% static 'team/bhupi.jpg' %}" alt="">
+                </div>
+                <h5 class="mb-0">Ankit Dipta Dutta</h5>
+                <p>GOVERNOR</p>
+                <div class="btn-slide mt-1">
+                    <i class="fa fa-share"></i>
+                    <span>
+                        <a href="https://www.facebook.com/bhupesh.vermaa"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/bhupeshvermaa10/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/bhupeshvermaa/"><i class="fab fa-instagram"></i></a>
+                    </span>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+              <div class="team-item p-4">
+                <div class="overflow-hidden mb-4">
+                    <img class="img-fluid" src="https://scontent.fmaa8-1.fna.fbcdn.net/v/t1.6435-1/96683212_1684467671700449_2888170631008878592_n.jpg?stp=dst-jpg_s320x320&_nc_cat=101&ccb=1-7&_nc_sid=7206a8&_nc_ohc=H6Wh9v6ITzAAX_p4q7e&_nc_ht=scontent.fmaa8-1.fna&oh=00_AfDhvpxZiyO9ED9T1CTocjbb6r2CnnXxyqm-X1WGiy_j3w&oe=6509B1FF" alt="">
+                </div>
+                <h5 class="mb-0">Somya Ranjan Dass</h5>
+                <p>GOVERNOR</p>
+                <div class="btn-slide mt-1">
+                    <i class="fa fa-share"></i>
+                    <span>
+                        <a href="https://www.facebook.com/puja.dey.7564"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/puja-dey-2812abb6/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/puja_dey94/"><i class="fab fa-instagram"></i></a>
+                    </span>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="row g-4 p-5 ">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="team-item p-4">
+                  <div class="overflow-hidden mb-4">
+                      <img class="img-fluid" src="https://scontent.fmaa8-1.fna.fbcdn.net/v/t1.6435-1/96683212_1684467671700449_2888170631008878592_n.jpg?stp=dst-jpg_s320x320&_nc_cat=101&ccb=1-7&_nc_sid=7206a8&_nc_ohc=H6Wh9v6ITzAAX_p4q7e&_nc_ht=scontent.fmaa8-1.fna&oh=00_AfDhvpxZiyO9ED9T1CTocjbb6r2CnnXxyqm-X1WGiy_j3w&oe=6509B1FF" alt="">
+                  </div>
+                  <h5 class="mb-0">Prithwiraj Mahato </h5>
+                  <p>GOVERNOR</p>
+                  <div class="btn-slide mt-1">
+                      <i class="fa fa-share"></i>
+                      <span>
+                          <a href="https://www.facebook.com/puja.dey.7564"><i class="fab fa-facebook-f"></i></a>
+                          <a href="https://www.linkedin.com/in/puja-dey-2812abb6/"><i class="fab fa-linkedin"></i></a>
+                          <a href="https://www.instagram.com/puja_dey94/"><i class="fab fa-instagram"></i></a>
+                      </span>
+                  </div>
+              </div>
+            </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="team-item p-4">
+              <div class="overflow-hidden mb-4">
+                  <img class="img-fluid" src="{% static 'team/abhi.png' %}"  alt="">
+              </div>
+              <h5 class="mb-0">Golla Meghanandh Manvith Prabhash </h5>
+              <p>TECH HEAD</p>
+              <div class="btn-slide mt-1">
+                  <i class="fa fa-share"></i>
+                  <span>
+                      <a href="https://www.facebook.com/abhimaurya0001"><i class="fab fa-facebook-f"></i></a>
+                      <a href="https://www.linkedin.com/in/abhishek-singh-maurya-621911217/"><i class="fab fa-linkedin"></i></a>
+                      <a href="https://www.instagram.com/abhishekmaurya3053/"><i class="fab fa-instagram"></i></a>
+                  </span>
+              </div>
+          </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+            <div class="team-item p-4">
+              <div class="overflow-hidden mb-4">
+                  <img class="img-fluid" src="{% static 'team/koushal.jpg' %}" alt="">
+              </div>
+              <h5 class="mb-0">Karina Dhaka</h5>
+              <p>DESIGN HEAD</p>
+              <div class="btn-slide mt-1">
+                  <i class="fa fa-share"></i>
+                  <span>
+                      <a href="https://www.facebook.com/shivam.bhalse.9862"><i class="fab fa-facebook-f"></i></a>
+                      <a href="https://www.linkedin.com/in/koushal-mujalde-284aa222b/"><i class="fab fa-linkedin"></i></a>
+                      <a href=""><i class="fab fa-instagram"></i></a>
+                  </span>
+              </div>
+          </div>
+          </div>
+      </div>
+      <div class="row g-4 p-5 ">
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="team-item p-4">
+              <div class="overflow-hidden mb-4">
+                  <img class="img-fluid" src="{% static 'team/atre.jpg' %}"  alt="">
+              </div>
+              <h5 class="mb-0">D S M V VARDHAN</h5>
+              <p>DESIGN HEAD</p>
+              <div class="btn-slide mt-1">
+                  <i class="fa fa-share"></i>
+                  <span>
+                      <a href="https://www.facebook.com/atreyee.dey.12"><i class="fab fa-facebook-f"></i></a>
+                      <a href="https://www.linkedin.com/in/atreyee-dey-05384415a/"><i class="fab fa-linkedin"></i></a>
+                      <a href="https://www.instagram.com/atreyee_dey18/"><i class="fab fa-instagram"></i></a>
+                  </span>
+              </div>
+          </div>
+          </div>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+          <div class="team-item p-4">
+            <div class="overflow-hidden mb-4">
+                <img class="img-fluid" src="{% static 'team/ravi.jpg' %}" alt="">
+            </div>
+            <h5 class="mb-0">RAVI KATARIYA</h5>
+            <p>TREE CENSUS HEAD</p>
+            <div class="btn-slide mt-1">
+                <i class="fa fa-share"></i>
+                <span>
+                    <a href="https://www.facebook.com/ravi.katariya.4"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/ravi-katariya-576a45217/" ><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/rviii_04/"><i class="fab fa-instagram"></i></a>
+                </span>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+          <div class="team-item p-4">
+            <div class="overflow-hidden mb-4">
+                <img class="img-fluid" src="{% static 'team/vinit.jpg' %}"  alt="">
+            </div>
+            <h5 class="mb-0">Sandeep Kowshik Koppaka</h5>
+            <p>PR Head</p>
+            <div class="btn-slide mt-1">
+                <i class="fa fa-share"></i>
+                <span>
+                    <a href="https://www.facebook.com/vinit.muzalda.1"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/vinit-muzalda-039129216/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/the_vinit_muzalda/" ><i class="fab fa-instagram"></i></a>
+                </span>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="row g-4 p-5 ">
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="team-item p-4">
+              <div class="overflow-hidden mb-4">
+                  <img class="img-fluid" src="{% static 'team/atre.jpg' %}"  alt="">
+              </div>
+              <h5 class="mb-0">Nitish Kumar </h5>
+              <p>PR Head</p>
+              <div class="btn-slide mt-1">
+                  <i class="fa fa-share"></i>
+                  <span>
+                      <a href="https://www.facebook.com/atreyee.dey.12"><i class="fab fa-facebook-f"></i></a>
+                      <a href="https://www.linkedin.com/in/atreyee-dey-05384415a/"><i class="fab fa-linkedin"></i></a>
+                      <a href="https://www.instagram.com/atreyee_dey18/"><i class="fab fa-instagram"></i></a>
+                  </span>
+              </div>
+          </div>
+          </div>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+          <div class="team-item p-4">
+            <div class="overflow-hidden mb-4">
+                <img class="img-fluid" src="{% static 'team/Pabitra.jpg' %}" alt="">
+            </div>
+            <h5 class="mb-0">Pabitra Senapati</h5>
+            <p>GARDENING TEAM HEAD</p>
+            <div class="btn-slide mt-1">
+                <i class="fa fa-share"></i>
+                <span>
+                    <a href="https://www.facebook.com/ravi.katariya.4"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/ravi-katariya-576a45217/" ><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/rviii_04/"><i class="fab fa-instagram"></i></a>
+                </span>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+          <div class="team-item p-4">
+            <div class="overflow-hidden mb-4">
+                <img class="img-fluid" src="{% static 'team/vinit.jpg' %}"  alt="">
+            </div>
+            <h5 class="mb-0">Priyantan Gupta</h5>
+            <p>GARDENING TEAM HEAD</p>
+            <div class="btn-slide mt-1">
+                <i class="fa fa-share"></i>
+                <span>
+                    <a href="https://www.facebook.com/vinit.muzalda.1"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/vinit-muzalda-039129216/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/the_vinit_muzalda/" ><i class="fab fa-instagram"></i></a>
+                </span>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div> -->
+
+
+
+
+<!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+      <div class="container py-5">
+          <div class="text-center">
+              <h4 class="text-secondary text-uppercase">Testimonial</h4>
+              <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 ">Our Patrons & Mentors
+              </span></h1>
+
+          </div>
+          <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+              <div class="testimonial-item p-4 my-5">
+                  <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
+                  <div class="d-flex align-items-end mb-4">
+                      <img class="img-fluid flex-shrink-0" src="{% static 'testimonials/drsunil.jpg' %}" style="width: 80px; height: 80px;">
+                      <div class="ms-4">
+                          <h4 class="mb-1">Dr. Saamdu Chetri</h4>
+                          <p class="m-0">Professor at IIT Kharagpur; Former Joint Secretary at Prime Minister’s Office, Bhutan;</p>
+                      </div>
+                  </div>
+                  <p class="mb-0">" I commended the work of the Vision Prabaho (VP) directed for saving the planet earth for the wellbeing of the human race. A young and dedicate group of students from IIT Kharagpur has launched this program, the VP. I have taken part in a few of their events and have fallen in love with their attitude and the efforts they put to enlivening the planet earth with a humble beginning. They can change the world stage if we can support them. I wish them more energy and light to live up with their vision. ”</p>
+              </div>
+              <div class="testimonial-item p-4 my-5">
+                  <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
+                  <div class="d-flex align-items-end mb-4">
+                      <img class="img-fluid flex-shrink-0" src="{% static 'testimonials/barnali.jpg' %}" style="width: 80px; height: 80px;">
+                      <div class="ms-4">
+                          <h5 class="mb-1">Ms. Barnali Chakrabarti
+                          </h5>
+                          <p class="m-0">Botanist and Environmental evangelist
+
+                          </p>
+                      </div>
+                  </div>
+                  <p class="mb-0">"I have closely worked with members of Vision Prabaho. They are group of really dedicated ones believing in better sustainable environment and side by side working for better living for the marginalized ones. All the members are dedicated and honest and have a clear vision of what needs to be done. I do hope to and looking forward to work closely with them and help in their endeavours. ”</p>
+              </div>
+              <div class="testimonial-item p-4 my-5">
+                  <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
+                  <div class="d-flex align-items-end mb-4">
+                      <img class="img-fluid flex-shrink-0" src="{% static 'testimonials/ppc.jpg' %}" style="width: 80px; height: 80px;">
+                      <div class="ms-4">
+                          <h5 class="mb-1">Dr. Partha Pratim Chakrabarti
+                          </h5>
+                          <p class="m-0">Shanti Swarup Bhatnagar Awardee; Professor at IIT Kharagpur; Former Director at IIT Kharagpur; Mentor Director at IIIT Kalyani</p>
+                      </div>
+                  </div>
+                  <p class="mb-0">“ I am deeply impressed by the passion, mission, effort, execution and sustained thoughtful work of Team Vision Prabaho, whom I have known for many years. They have taken up the most ideal activity applicable today from students – that of combining science, technology, ecology and community participation for a sustainable planet. Their work covering all angles from awareness to participatory implementation has yielded real benefits both in the mind of people as well as on the ground. They are a group who can help bring about transformation and I strongly recommend all well-wishers to support them as many of us are doing. I wish them more energy and power to live up to their vision and dream for a better planet. ”
+
+                  </p>
+              </div>
+              <div class="testimonial-item p-4 my-5">
+                  <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
+                  <div class="d-flex align-items-end mb-4">
+                      <img class="img-fluid flex-shrink-0" src="{% static 'testimonials/4.jpg' %}" style="width: 80px; height: 80px;">
+                      <div class="ms-4">
+                          <h5 class="mb-1">Honorable Former Justice Nadira Patherya
+                          </h5>
+                          <p class="m-0">Calcutta High Court
+
+                          </p>
+                      </div>
+                  </div>
+                  <p class="mb-0">“ I was invited by the organisation to IIT Kharagpur and was very impressed by the kind of work that the organisation was being done. Hope this kind of work is carried on so that the environment is eco-friendly and carbon dioxide is lessened in the air while oxygen helps us to breathe. Kudos to Vision Prabaho.”
+
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Testimonial End -->
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    // Smooth scroll with sliding effect
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+  
+        const target = document.querySelector(this.getAttribute('href'));
+        const topOffset = target.getBoundingClientRect().top + window.pageYOffset;
+        const duration = 800; // Adjust the duration as desired
+  
+        window.scrollTo({
+          top: topOffset,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+  <section id="contact"class="text-gray-600 body-font relative">
+    <div class="absolute inset-0">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14764.127294358095!2d87.29959484835966!3d22.31463617571661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1d44031d91072d%3A0x750e832f90176385!2sIIT%20Kharagpur%2C%20Kharagpur%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1691771513483!5m2!1sen!2sin"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width: 100%; height: 100%;"></iframe>
+    </div>
+    <div class="container px-5 py-24 mx-auto flex">
+
+      <div class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
+        <h2 class="text-4xl text-center py-2  dark:text-black">Contact Us</h2>
+
+        {% if success_message %}
+        <p class="success-message">{{ success_message }}</p>
+        {% endif %}
+        <div class="relative mb-4">
+
+    <form method="post"  action="{% url 'photo:contact' %}" >
+
+          <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+          <input type="text" id="name" name="name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div class="relative mb-4">
+          {% csrf_token %}
+          {{form.as_p}}
+          <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+          <textarea id="message" name="message" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+        </div>
+        <button type="submit" class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Contact Us</button>
+
+    </form>
+
+        <p class="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
+      </div>
+    </div>
+  </section>
+      <!-- Footer Start -->
+      <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
+        <div class="container ">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>IIT Kharagpur , Westbengal </p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 80746 06781</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>tesiitkgp@gmail.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/tesiitkgp/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/TESIITKGP/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/tesiitkgp"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="/#about">About Us</a>
+                    <a class="btn btn-link" href="/#contact">Contact Us</a>
+                    <a class="btn btn-link" href="{% url 'photo:list' %}">Our Events</a>
+                    <a class="btn btn-link" href="{% url 'photo:article' %}">Articles</a>
+                    <a class="btn btn-link"  href="/#team-section" >Team</a>
+                </div>
+                {% comment %} <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Newsletter</h4>
+                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                      <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                      <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" style="background-color: #FF3E41; color: white;">SignUp</button>
+                  </div>
+                  
+                </div> {% endcomment %}
+                <div class="col-lg-3 col-md-6">
+                  <h4 class="text-light mb-4">Newsletter</h4>
+                  <div id="subscribe-form">
+                      <p>Subscribe to our Newsletter to get the latest updates from our society</p>
+                      <div class="position-relative mx-auto" style="max-width: 400px;">
+                          <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="email" id="email" placeholder="Your email">
+                          <button type="button" id="subscribe-button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" style="background-color: #FF3E41; color: white;">Subscribe</button>
+                      </div>
+                  </div>
+              </div>
+              
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log("Document ready.");
+        
+        $('#subscribe-button').click(function () {
+            console.log("Button clicked.");
+            
+            var email = $('#email').val();
+            console.log("Email:", email);
+            
+            $.ajax({
+                type: 'POST',
+                url: '{% url "photo:subscribe" %}',
+                data: { 'email': email, 'csrfmiddlewaretoken': '{{ csrf_token }}' },
+                success: function (data) {
+                    console.log("Success:", data);
+                    $('#subscribe-form').html('<p>Subscription successful!</p>');
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error:", error);
+                }
+            });
+        });
+    });
+</script>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">tesiitkgp.in</a>, All Right Reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a> -->
+
+
+  
+
+
+
+{% endblock body %}

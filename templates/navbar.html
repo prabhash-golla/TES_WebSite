@@ -1,0 +1,36 @@
+{% load static %}
+<style>
+  .collapse{
+    visibility: visible;
+  }
+</style>
+
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 sticky-top p-0">
+        <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            {% comment %} <h2 class="mb-2 text-white">Logistica</h2> {% endcomment %}
+            <img src="{% static 'tesd.png' %}"class="flex title-font font-medium items-center" alt="logo" width="45" height="45">
+
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="/" class="nav-item nav-link">Home</a>
+                <a href="{% url 'photo:events' %}" class="nav-item nav-link">Events</a>
+                <a href="{% url 'photo:article' %}" class="nav-item nav-link">Articles</a>
+                <a href="{% url 'photo:teams' %}" class="nav-item nav-link">Team</a>
+                <a href="/#contact" class="nav-item nav-link">Contact</a>
+            </div>
+            
+            {% if user.is_authenticated %}
+              <button type="button" class=" btn btn-secondary py-md-3 px-md-5 me-3 animated slideInLeft">
+              <a class="text-black" href="{% url 'photo:create' %}">Add a photo</a>
+              </button>
+            {% endif %}
+        </div>
+    </nav>
+    <!-- Navbar End -->
